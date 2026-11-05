@@ -6,7 +6,7 @@ Frame an iron ingot on a hopper under your mob farm's chest line, and only iron 
 
 `Java 25` `Fabric Loader 0.20.1` `Mixin` `Minecraft 26.3`
 
-**v1.0.0 — Stable**
+**v1.0.1 — Stable**
 
 ---
 
@@ -16,6 +16,7 @@ Frame an iron ingot on a hopper under your mob farm's chest line, and only iron 
 - 🔁 **Every input**: works for hoppers and chests above, hoppers pointing in from the side, and items dropped on top
 - 🪹 **Empty frame, normal hopper**: no frame (or an empty one) means a regular vanilla hopper
 - ✨ **Glow item frames count too**
+- ⚡ **Works with Lithium**: Lithium's faster hoppers respect the filter too
 - 🪶 **Server side only**: no textures, no new blocks, no Fabric API. Vanilla hoppers just behave better
 
 ## 🎯 How matching works
@@ -23,18 +24,18 @@ Only the item type counts, not its name, damage or enchantments. A framed enchan
 
 ## 📦 Install
 1. Install Fabric Loader 0.20.1+ for Minecraft 26.3
-2. Drop `framed-hoppers-1.0.0.jar` into `mods/`
+2. Drop `framed-hoppers-1.0.1.jar` into `mods/`
 
 Works in singleplayer and on Fabric servers. Players joining a server don't need it.
 
 ## 🛠️ Build
 ```bash
 JAVA_HOME=/path/to/jdk-25 ./gradlew build
-# -> build/libs/framed-hoppers-1.0.0.jar
+# -> build/libs/framed-hoppers-1.0.1.jar
 ```
 
 ## 🗂️ How it works
-- `HopperBlockEntityMixin`: every item that goes into a hopper passes through vanilla's `canPlaceItemInContainer`. The mixin refuses items the hopper's frames don't show
+- `HopperBlockEntityMixin`: gives hoppers a `canPlaceItem` check that refuses items the hopper's frames don't show. Vanilla asks it for every item that goes into a hopper, and so does Lithium's hopper code. Players can still put anything in by hand
 - `FramedHoppers`: finds the item frames hanging on a hopper. Each hopper looks them up at most once per tick
 
 ## 📄 License
