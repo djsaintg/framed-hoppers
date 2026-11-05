@@ -1,0 +1,20 @@
+{
+	"schemaVersion": 1,
+	"id": "framed_hoppers",
+	"version": "${version}",
+	"name": "Framed Hoppers",
+	"description": "Put an item frame on a hopper and it only takes in the item shown. Item sorters without the redstone.",
+	"authors": ["djsaintg"],
+	"contact": {
+		"sources": "https://github.com/djsaintg/framed-hoppers"
+	},
+	"license": "MIT",
+	"icon": "assets/framed_hoppers/icon.png",
+	"environment": "*",
+	"mixins": ["framed_hoppers.mixins.json"],
+	"depends": {
+		"fabricloader": ">=0.20.1",
+		"minecraft": "~26.3",
+		"java": ">=25"
+	}
+}
